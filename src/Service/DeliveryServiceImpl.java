@@ -14,11 +14,7 @@ public class DeliveryServiceImpl implements DeliveryService{
 		// TODO Auto-generated method stub
 		
 		String sql = "Select * from stockOrder";
-		Statement stm = conn.createStatement();
-		ResultSet rst = stm.executeQuery(sql);
-		ArrayList<Delivery> delList = new ArrayList<Delivery>();
-		
-		
+
 		return null;
 	}
 

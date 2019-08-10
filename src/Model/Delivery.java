@@ -14,6 +14,10 @@ public class Delivery {
 	private String empID;
 	private String date;
 	
+	public Delivery() {
+		
+	}
+	
 	public Delivery(String delID, String orderID, String shopName, String address, String email, String bookID,
 			int quantity, float amount, String vehicleNo, String empID, String date) {
 		super();

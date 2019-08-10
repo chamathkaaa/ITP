@@ -34,8 +34,18 @@ public class AddDeliveryServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+		
+		String delID = request.getParameter("DeliveryID");
+		String ordID = request.getParameter("OrderID");
+		String shName = request.getParameter("ShopName");
+		String addr = request.getParameter("address");
+		String email = request.getParameter("email");
+		String bkID = request.getParameter("bookID");
+		/*int qty = request.get("qty");
+		float amount = 
+		String vehicleNo
+		String empID
+		String date*/
 	}
 
 }
