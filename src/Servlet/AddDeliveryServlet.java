@@ -45,7 +45,7 @@ public class AddDeliveryServlet extends HttpServlet {
 		float amount = Float.parseFloat("amount");
 		String vehicleNo = request.getParameter("vahicle");
 		String empID = request.getParameter("employee");
-		String date 
+		//String date 
 	}
 
 }
