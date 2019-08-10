@@ -41,8 +41,8 @@ public class AddDeliveryServlet extends HttpServlet {
 		String addr = request.getParameter("address");
 		String email = request.getParameter("email");
 		String bkID = request.getParameter("bookID");
-		//int qty = request.getParameter("qty");
-		/*int qty = ge
+		/*int qty = request.getParameter("qty");
+		int qty = ge
 		float amount = 
 		String vehicleNo
 		String empID
