@@ -41,12 +41,11 @@ public class AddDeliveryServlet extends HttpServlet {
 		String addr = request.getParameter("address");
 		String email = request.getParameter("email");
 		String bkID = request.getParameter("bookID");
-		//int qty = request.getParameter("qty");
-		/*int qty = ge
-		float amount = 
-		String vehicleNo
-		String empID
-		String date*/
+		int qty = Integer.parseInt("qty");
+		float amount = Float.parseFloat("amount");
+		String vehicleNo = request.getParameter("vahicle");
+		String empID = request.getParameter("employee");
+		String date 
 	}
 
 }
