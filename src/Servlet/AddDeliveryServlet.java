@@ -7,6 +7,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import Model.Delivery;
+import Service.DeliveryService;
+import Service.DeliveryServiceImpl;
+
 /**
  * Servlet implementation class AddDeliveryServlet
  */
@@ -46,6 +50,24 @@ public class AddDeliveryServlet extends HttpServlet {
 		String vehicleNo = request.getParameter("vahicle");
 		String empID = request.getParameter("employee");
 		//String date 
+		
+		Delivery del = new Delivery();
+		
+		del.setDelID(delID);
+		del.setOrderID(ordID);
+		del.setShopName(shName);
+		del.setAddress(addr);
+		del.setEmail(email);
+		del.setBookID(bkID);
+		del.setQuantity(qty);
+		del.setAmount(amount);
+		del.setVehicleNo(vehicleNo);
+		del.setEmpID(empID);
+		
+		DeliveryService delService = new DeliveryServiceImpl();
+		
+		boolean isAdded = delService.addNewDelivery(del);
+		
 	}
 
 }

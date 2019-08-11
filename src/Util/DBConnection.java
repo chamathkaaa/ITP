@@ -6,11 +6,18 @@ import java.sql.SQLException;
 
 public class DBConnection {
 
-	public static Connection getConnection() throws ClassNotFoundException, SQLException {
+	public static Connection getConnection() {
 		
-		Class.forName("com.mysql.jdbc.Driver");
 		
-		Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/malpiyali","root","chamathka1998");
+		Connection conn;
+		
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/malpiyali","root","chamathka1998");
+		} catch (SQLException | ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 		return conn;
 	}

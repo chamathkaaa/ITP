@@ -7,4 +7,6 @@ import Model.Delivery;
 public interface DeliveryService {
 
 	public ArrayList<Delivery> getAllDeliveries();
+
+	 boolean addNewDelivery(Delivery del);
 }
