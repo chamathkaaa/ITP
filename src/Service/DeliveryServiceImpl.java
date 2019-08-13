@@ -13,9 +13,9 @@ public class DeliveryServiceImpl implements DeliveryService{
 	public ArrayList<Delivery> getAllDeliveries() {
 		// TODO Auto-generated method stub
 		
-		String sql = "Select * from stockOrder";;;;
+		String sql = "Select * from stockOrder";
 
-		return null;;;;
+		return null;
 	}
 
 }
