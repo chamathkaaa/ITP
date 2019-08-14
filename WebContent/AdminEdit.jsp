@@ -207,11 +207,8 @@
 
              <div align="center">
 
-		
+		<div class="table-responsive" style="height:500px;">
 			<form action="#" method="post">
-    
-
-                
            <div class="col-md-5 col-sm-8" style="position: relative;   ">
               <div class="fileinput fileinput-new text-center" data-provides="fileinput">
                 <div class="fileinput-new thumbnail img-raised"  style="height: 150px; width: 150px; left: 150px;">
@@ -233,7 +230,7 @@
      	
         		
      		
-                    <div class="form-group">
+                                  <div class="form-group">
                       <div class="input-group">
                         <div class="input-group-prepend">
                           <span class="input-group-text">
@@ -241,31 +238,49 @@
                           </span>
                         </div>
                         <input type="text" name="name" size="45"
-                			 class="form-control" placeholder="Book Name..." value="">
+                			 class="form-control" placeholder="Book Name..." >
                       </div>
                     </div>
                     <div class="form-group">
                       <div class="input-group">
                         <div class="input-group-prepend">
                           <span class="input-group-text">
-                            <i class="material-icons">description</i>
+                            <i class="material-icons">people</i>
                           </span>
                         </div>
-                        <input type="hidden" name="id" size="45"
-                			 placeholder="Description..." class="form-control" value="" />
-                			 
-                			 
                         <input type="text" name="Author" size="45"
-                			 placeholder="Description..." class="form-control" value="" />
+                			 placeholder="Author" class="form-control" />
+                      </div>
+                    </div>
+                         <div class="form-group">
+                      <div class="input-group">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text">
+                            <i class="material-icons">list</i>
+                          </span>
+                        </div>
+                        <input type="text" name="Category" size="45"
+                			 placeholder="Category" class="form-control" />
+                      </div>
+                    </div>
+                         <div class="form-group">
+                      <div class="input-group">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text">
+                            <i class="material-icons">monetization_on</i>
+                          </span>
+                        </div>
+                        <input type="text" name="Price" size="45"
+                			 placeholder="Price" class="form-control" />
                       </div>
                     </div>
     
-	  
+
 
                      <div class="card-footer justify-content-center">
                  <div class="text-center" >
                 
-                     <button  type="submit" value="Save"  style="background-color: #99199B; width: 500px;"  class="btn btn-primary" >Add Book
+                     <button  type="submit" value="Save"  style="background-color: #99199B; width: 500px;"  class="btn btn-primary" >Add Books
                      </button>
                      <button  style="background-color: red; width: 200px;"  type="button" class="btn btn-primary" >Clear
                      </button>
@@ -273,10 +288,8 @@
                     
 
                    </div>  
-
-               
                    </form>
-           
+                   </div>
 </div>            
            </div>
 

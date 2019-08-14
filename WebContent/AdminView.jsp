@@ -218,51 +218,96 @@
                  
 
    
-      <div class="card card-plain" >
-        <div class="card-body" >
-        
-          <div class="table-responsive" style="height:410px;">
-            <table class="table table-shopping">
-              <thead>
-                <tr>
-                  <th>Book</th>
-                  <th>Name</th>
-                  <th>Author</th>
-                  <th>Action</th>
-                </tr>
-              </thead>
-         
-              <tbody>
-             
-                <tr>
-                  <td>
-                    <div class="img-container">
-                      <img src="assets/img/aven.jpg" alt="...">
-                    </div>
-                  </td>
-                  <td class="td-name">  
-                 Name
-                  </td>
-                  <td class="td-name" style="font-size: 16px;">
-                 Author
-                  </td>
-                  
-                    <td >
-                    
-                    	
-                          
-                           
-                          </button>
-                          
-                          </form>
+      
+              <div class="card" style="height:410px; width: 750px;">
+               
+                <div class="card-body table-responsive">
+                  <table class="table table-hover">
+                    <thead class="text-warning">
+                      <th>ID</th>
+                      <th>Book</th>
+                       <th>Name</th>
+                      <th>Author</th>
+                      <th>Category</th>
+                      <th>Price</th>
+                      <th>Action</th>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>001</td>
+                        <td> 
+                          <div class="img-container" style="width: 100px; height: 100px;">
+                      <img src="assets/img/B362.jpg" alt="...">
+                        </div>
                         </td>
-                </tr>               
-              </tbody>
-         
-            </table>
-          </div>
-        </div>
-      </div>
+                        <td>Geography</td>
+                        <td>Resara</td>
+                        <td>1</td>
+                        <td>Rs.1200</td>
+                             <td>
+                                 <button  type="submit" value="Save" rel="tooltip" class="btn btn-success btn-round btn-just-icon btn-sm"  data-toggle="tooltip" data-placement="top" title="Edit" data-container="body">
+                            <i class="material-icons" style="color : white;">edit</i>
+                     </button>
+                             
+                                <button rel="tooltip" class="btn btn-danger btn-round btn-just-icon btn-sm"  data-toggle="tooltip" data-placement="top" title="Delete">
+                            <i class="material-icons" style="color : white;">close</i>
+                            </button>
+                            
+                            </td>
+                      </tr>
+
+
+
+          <tr>
+                        <td>001</td>
+                        <td> 
+                          <div class="img-container" style="width: 100px; height: 100px;">
+                      <img src="assets/img/B362.jpg" alt="...">
+                        </div>
+                        </td>
+                        <td>Geography</td>
+                        <td>Resara</td>
+                        <td>1</td>
+                        <td>Rs.1200</td>
+                             <td>
+                                 <button  type="submit" value="Save" rel="tooltip" class="btn btn-success btn-round btn-just-icon btn-sm"  data-toggle="tooltip" data-placement="top" title="Edit" data-container="body">
+                            <i class="material-icons" style="color : white;">edit</i>
+                     </button>
+                             
+                                <button rel="tooltip" class="btn btn-danger btn-round btn-just-icon btn-sm"  data-toggle="tooltip" data-placement="top" title="Delete">
+                            <i class="material-icons" style="color : white;">close</i>
+                            </button>
+                            
+                            </td>
+                      </tr>
+                      
+                      
+                                <tr>
+                        <td>001</td>
+                        <td> 
+                          <div class="img-container" style="width: 100px; height: 100px;">
+                      <img src="assets/img/B362.jpg" alt="...">
+                        </div>
+                        </td>
+                        <td>Geography</td>
+                        <td>Resara</td>
+                        <td>1</td>
+                        <td>Rs.1200</td>
+                             <td>
+                                 <button  type="submit" value="Save" rel="tooltip" class="btn btn-success btn-round btn-just-icon btn-sm"  data-toggle="tooltip" data-placement="top" title="Edit" data-container="body">
+                            <i class="material-icons" style="color : white;">edit</i>
+                     </button>
+                             
+                                <button rel="tooltip" class="btn btn-danger btn-round btn-just-icon btn-sm"  data-toggle="tooltip" data-placement="top" title="Delete">
+                            <i class="material-icons" style="color : white;">close</i>
+                            </button>
+                            
+                            </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
           
         
              </div>             

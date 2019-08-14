@@ -204,12 +204,8 @@
 
              <div align="center">
 		
-		
-			<form action="#" method="post">
-    
-        
-        		
-                
+		 <div class="table-responsive" style="height:500px;">
+			<form action="#" method="post">      
            <div class="col-md-5 col-sm-8" style="position: relative;   ">
               <div class="fileinput fileinput-new text-center" data-provides="fileinput">
                 <div class="fileinput-new thumbnail img-raised"  style="height: 150px; width: 150px; left: 150px;">
@@ -244,11 +240,33 @@
                       <div class="input-group">
                         <div class="input-group-prepend">
                           <span class="input-group-text">
-                            <i class="material-icons">description</i>
+                            <i class="material-icons">people</i>
                           </span>
                         </div>
                         <input type="text" name="Author" size="45"
-                			 placeholder="Description..." class="form-control" />
+                			 placeholder="Author" class="form-control" />
+                      </div>
+                    </div>
+                         <div class="form-group">
+                      <div class="input-group">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text">
+                            <i class="material-icons">list</i>
+                          </span>
+                        </div>
+                        <input type="text" name="Category" size="45"
+                			 placeholder="Category" class="form-control" />
+                      </div>
+                    </div>
+                         <div class="form-group">
+                      <div class="input-group">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text">
+                            <i class="material-icons">monetization_on</i>
+                          </span>
+                        </div>
+                        <input type="text" name="Price" size="45"
+                			 placeholder="Price" class="form-control" />
                       </div>
                     </div>
     
@@ -266,6 +284,7 @@
 
                    </div>  
                    </form>
+                   </div>
                   
 </div>            
            </div>
