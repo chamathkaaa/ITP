@@ -74,6 +74,8 @@ public class AddDeliveryServlet extends HttpServlet {
 			
 			if(isAdded == true) {
 				
+				System.out.println("Successfull !");
+				
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
