@@ -1,6 +1,8 @@
 package Servlet;
 
 import java.io.IOException;
+import java.sql.SQLException;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -39,21 +41,21 @@ public class AddDeliveryServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		String delID = request.getParameter("DeliveryID");
+		String del_id = request.getParameter("DeliveryID");
 		String ordID = request.getParameter("OrderID");
 		String shName = request.getParameter("ShopName");
 		String addr = request.getParameter("address");
 		String email = request.getParameter("email");
 		String bkID = request.getParameter("bookID");
-		int qty = Integer.parseInt("qty");
-		float amount = Float.parseFloat("amount");
-		String vehicleNo = request.getParameter("vahicle");
+		String qty = request.getParameter("qty");
+		String amount = request.getParameter("amount");
+		String vehicleNo = request.getParameter("vehicle");
 		String empID = request.getParameter("employee");
-		//String date 
+		String date = request.getParameter("date");
 		
 		Delivery del = new Delivery();
 		
-		del.setDelID(delID);
+		del.setDelID(del_id);
 		del.setOrderID(ordID);
 		del.setShopName(shName);
 		del.setAddress(addr);
@@ -63,10 +65,20 @@ public class AddDeliveryServlet extends HttpServlet {
 		del.setAmount(amount);
 		del.setVehicleNo(vehicleNo);
 		del.setEmpID(empID);
+		del.setDate(date);
 		
 		DeliveryService delService = new DeliveryServiceImpl();
 		
-		boolean isAdded = delService.addNewDelivery(del);
+		try {
+			boolean isAdded = delService.addNewDelivery(del);
+			
+			if(isAdded == true) {
+				
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 	}
 

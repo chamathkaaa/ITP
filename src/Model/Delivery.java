@@ -8,8 +8,8 @@ public class Delivery {
 	private String address;
 	private String email;
 	private String bookID;
-	private int quantity;
-	private float amount;
+	private String quantity;
+	private String amount;
 	private String vehicleNo;
 	private String empID;
 	private String date;
@@ -19,7 +19,7 @@ public class Delivery {
 	}
 	
 	public Delivery(String delID, String orderID, String shopName, String address, String email, String bookID,
-			int quantity, float amount, String vehicleNo, String empID, String date) {
+			String quantity, String amount, String vehicleNo, String empID, String date) {
 		super();
 		this.delID = delID;
 		this.orderID = orderID;
@@ -82,19 +82,19 @@ public class Delivery {
 		this.bookID = bookID;
 	}
 
-	public int getQuantity() {
+	public String getQuantity() {
 		return quantity;
 	}
 
-	public void setQuantity(int quantity) {
+	public void setQuantity(String quantity) {
 		this.quantity = quantity;
 	}
 
-	public float getAmount() {
+	public String getAmount() {
 		return amount;
 	}
 
-	public void setAmount(float amount) {
+	public void setAmount(String amount) {
 		this.amount = amount;
 	}
 
