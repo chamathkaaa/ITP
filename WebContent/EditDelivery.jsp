@@ -1,15 +1,11 @@
-<%@page import="Model.StockDelivery"%>
 <%@page import="Model.Delivery"%>
-<%@page import="java.util.ArrayList"%>
-<%@page import="Service.DeliveryServiceImpl"%>
-<%@page import="Service.DeliveryService"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-
 <html>
+
 <head>
-  <title>Stock Delivery View</title>
+	<title>Add Delivery</title>
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
@@ -78,19 +74,11 @@
       f.parentNode.insertBefore(j, f);
     })(window, document, 'script', 'dataLayer', 'GTM-NKDMSK6');
   </script>
-
-
-
-
-
-
 </head>
 
-<body>
-               
- 
 
- <nav class="navbar navbar-color-on-scroll navbar-transparent    fixed-top  navbar-expand-lg " color-on-scroll="100" id="sectionsNav">
+<body>
+	<nav class="navbar navbar-color-on-scroll navbar-transparent    fixed-top  navbar-expand-lg " color-on-scroll="100" id="sectionsNav">
     <div class="container">
       <div class="navbar-translate">
         <a class="navbar-brand" >
@@ -164,7 +152,7 @@
                           </li>
 
                           <li class="nav-item">
-                            <a class="nav-link active" href="AssignDelivery.jsp" role="tab" >
+                            <a class="nav-link active" href="AddDelivery.jsp" role="tab" >
                               <i class="material-icons">add</i> Add Deliveries
                             </a>
                           </li>
@@ -179,15 +167,24 @@
                         
                         </ul>
             </div>
-                <div class="profile-content">
+          
+             
+          
+              <div class="profile-content">
                 <div class="container">
 
                   <div class="row" >
                     <div class="col-md-6 ml-auto mr-auto">
-         
+
+                 
                   </div>
 
+        
+
+
                   <div class="tab-content tab-space" > 
+
+            
 
                     <div class="tab-pane active work" id="work" >
                       <div class="row" >
@@ -196,123 +193,200 @@
                             <div class="card card-signup">
                                
                           <div class="card-body">
-              <div class="row" style="  height:500px;">
-       
+                       <div class="row"  style="height:500px;">
 
-                         <div  style="width: 400px; left: 250px">
-                
-                    <form method="" action="#">
-                      <div class="row">
-                        <div class="col-lg-8 col-md-6 ">
-                          <div class="input-group">
-                            <div class="input-group-prepend">
-                              <span class="input-group-text">
-                                <i class="material-icons">search</i>
-                              </span>
-                            </div>
-                            <input type="text" value="" placeholder="Search..." class="form-control">
-                          </div>
+             <div align="center">
+		
+		<%
+		
+		Delivery d1 = (Delivery) request.getAttribute("getCid");
+		
+		  
+		  if( d1!=null){
+			  
+		
+		%>
+		<div class="table-responsive" style="height:410px; width: 850px;">
+			<form action="AddDeliveryServlet" method="post" >
+    
+     		
+                       <div class="form-group">
+                      <div class="input-group">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text">
+                            <i class="material-icons">filter</i>
+                          </span>
                         </div>
-                        <div class="col-lg-4 col-md-6 ">
-                          <button type="button" class="btn btn-primary btn-block">Search</button>
-                        </div>
+                        <input type="text" name="updateDelID" size="45"
+                			 placeholder="Delivery ID..." value="<%=d1.getDelID() %>" class="form-control"  />
                       </div>
-                    </form>
-              
-                </div>
+                    </div>
+                    <div class="form-group">
+                      <div class="input-group">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text">
+                            <i class="material-icons">bookmark_border</i>
+                          </span>
+                        </div>
+                        <input type="text" name="orderID" size="45"
+                			 placeholder="Order ID..." value="<%=d1.getOrderID() %>" class="form-control" />
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <div class="input-group">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text">
+                            <i class="material-icons">shopping_basket</i>
+                          </span>
+                        </div>
+                        <input type="text"  size="45"
+                			 placeholder="Shop Name..." value="<%=d1.getShopName() %>" class="form-control" name="shopName"/>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <div class="input-group">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text">
+                            <i class="material-icons">location_on</i>
+                          </span>
+                        </div>
+                        <input type="text"  size="45"
+                			 placeholder="Address..." value="<%=d1.getAddress() %>" class="form-control" name="address"/>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <div class="input-group">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text">
+                            <i class="material-icons">email</i>
+                          </span>
+                        </div>
+                        <input type="text"  size="45"
+                			 placeholder="Email..." value="<%=d1.getEmail() %>" class="form-control" name="email"/>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <div class="input-group">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text">
+                            <i class="material-icons">book</i>
+                          </span>
+                        </div>
+                        <input type="text"  size="45"
+                			 placeholder="Book ID..." value="<%=d1.getBookID() %>" class="form-control" name="bookID"/>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <div class="input-group">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text">
+                            <i class="material-icons">list</i>
+                          </span>
+                        </div>
+                        <input type="text"  size="45" placeholder="Quantity..." value="<%=d1.getQuantity() %>" class="form-control" name="quantity"/>
+                			
+                      </div>
+                    </div>
 
-        
-              
+                    <div class="form-group">
+                      <div class="input-group">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text">
+                            <i class="material-icons">attach_money</i>
+                          </span>
+                        </div>
+                        <input type="text"  size="45"
+                			 placeholder="Amount..." value="<%=d1.getAmount()%>" class="form-control" name="amount"/>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <div class="input-group">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text">
+                            <i class="material-icons">directions_car</i>
+                          </span>
+                        </div>
+                        <input type="text"  size="45"
+                			 placeholder="Vehicle No..." value="<%=d1.getVehicleNo() %>" class="form-control" name="vehicle"/>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <div class="input-group">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text">
+                            <i class="material-icons">person</i>
+                          </span>
+                        </div>
+                        <input type="text"  size="45"
+                			 placeholder="Employee ID..." value="<%=d1.getEmpID()%>" class="form-control" name="employee"/>
+                      </div>
+                    </div>
+                    <!--<div class="form-group">
+                      <div class="input-group">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text">
+                            <i class="material-icons">person</i>
+                          </span>
+                        </div>
+                        <div class="col-lg-50 col-md-60 col-sm-30">
+		                  <select class="selectpicker" data-style="select-with-transition" multiple title="Choose Driver" data-size="7">
+		                    <option disabled> Choose Driver</option>
+		                    <option value="2">Paris </option>
+		                    <option value="3">Bucharest</option>
+		                    <option value="4">Rome</option>
+		                    <option value="5">New York</option>
+		                    <option value="6">Miami </option>
+		                    <option value="7">Piatra Neamt</option>
+		                    <option value="8">Paris </option>
+		                    <option value="9">Bucharest</option>
+		                    <option value="10">Rome</option>
+		                    <option value="11">New York</option>
+		                    <option value="12">Miami </option>
+		                    <option value="13">Piatra Neamt</option>
+		                    <option value="14">Paris </option>
+		                    <option value="15">Bucharest</option>
+		                    <option value="16">Rome</option>
+		                    <option value="17">New York</option>
+		                    <option value="18">Miami </option>
+		                    <option value="19">Piatra Neamt</option>
+		                  </select>
+		                </div>
+                        
+                      </div>
+                    </div>-->
+                      
+                    <div class="form-group">
+                      <div class="input-group">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text">
+                            <i class="material-icons">date_range</i>
+                          </span>
+                        </div>
+                        <input type="text"  size="45"
+                			 placeholder="Delivery Date..." value="<%=d1.getDate() %>" class="form-control" name="date"/>
+                      </div>
+                    </div>
+    
 
 
-              <div class="card card-plain" >
-        <div class="card-body" >
-        
-          <div class="table-responsive" style="height:410px; width: 850px;">
-            <table class="table table-shopping">
-              <thead>
-                <tr>
-                  <!-- <th>Delivery ID</th> -->
-                  <th>Order ID</th>
-                  <th>Shop Name</th>
-                  <th>Address</th>
-                  <th>Email</th>
-                  <th>Book ID</th>
-                  <th>Quantity</th>
-                  <th>Amount</th>
-                  <!-- <th>Vehicle No</th>
-                  <th>Employee ID</th>
-                  <th>Delivery Date</th>
-                  <th>Action</th>  -->
-                </tr>
-              </thead>
-              <%
-              		DeliveryService serv = new DeliveryServiceImpl();
-             
-              		ArrayList<StockDelivery> list = serv.getAllDeliveries();
-              		
-              		for(StockDelivery s: list){
-              %>
-         
-              <tbody>
-             
-                <tr>  
-                  <!--<td class="td-name"> </td>  -->          
-                  
-                  <td class="td-name" > <%=s.getOrderId() %></td>
-                  
-                  <td class="td-name" > <%=s.getShopName() %> </td>
-                  
-                  <td class="td-name"> <%=s.getAddress() %>  </td>
-                  
-                  <td class="td-name"> <%=s.getEmail() %> </td>
-                  
-                  <td class="td-name"> <%=s.getBookId() %> </td>
-                 
-                  <td class="td-name"> <%=s.getQuantity() %></td>
-                 
-                  <td class="td-name"> <%=s.getAmount() %></td> 
-                 
-                  <!-- <td class="td-name">  </td>
-                 
-                  <td class="td-name">  </td>                 
-                  
-                  <td class="td-name">  </td>    -->
+                     <div class="card-footer justify-content-center">
+                 <div class="text-center" >
+                
+                     <button  type="submit" value="Save"  style="background-color: #99199B; width: 500px;"  class="btn btn-primary" >Add Deliveries
+                     </button>
+                     <button  style="background-color: red; width: 200px;"  type="button" class="btn btn-primary" >Clear
+                     </button>
+                    </div>
+                    
 
-                    <td class="td-actions text-right">
-                    	<form action="GetAssignDeliveryServlet" method="post">
-                    	<input type="hidden" name="updateDelID" value="">
-                    	<input type="hidden" name="orderID" value="<%=s.getOrderId() %>">
-                    	<input type="hidden" name="shopName" value="<%=s.getShopName()%>">
-                    	<input type="hidden" name="address" value="<%=s.getAddress() %>">
-                    	<input type="hidden" name="email" value="<%=s.getEmail() %>">
-                    	<input type="hidden" name="bookID" value="<%=s.getBookId() %>">
-                    	<input type="hidden" name="quantity" value="<%=s.getQuantity() %>">
-                    	<input type="hidden" name="amount" value="<%=s.getAmount() %>">
-                    	<input type="hidden" name="vehicle" value="">
-                    	<input type="hidden" name="employee" value="">
-                    	<input type="hidden" name="date" value="">
-                    	
-                    	
-                    	<button  type="submit" value="submit" rel="tooltip" class="btn btn-success btn-round btn-just-icon btn-sm" name="btnAssign">
-                          <i class="material-icons" style="color : white;">edit</i>
-                     	</button>
-                     	</form>
-                     	
-                    </td>
-                </tr>  
-                <%
-              		}
-                %>             
-              </tbody>
-         
-            </table>
-          </div>
-        </div>
-      </div>
-
-      
-             </div>             
+                   </div>  
+                   </form>
+               </div>
+               <%
+		  		}
+               %>
+                  
+</div>            
            </div>
 
                              </div>
@@ -322,17 +396,11 @@
                       </div>
                     </div>
 
-      
+                 
 
            </div>
 
                 </div>
-              </div>
-          
-      </div>
-
-
-
               </div>
           
       </div>
@@ -392,6 +460,6 @@
   <script src="assets/demo/demo.js" type="text/javascript"></script>
   <!-- Control Center for Material Kit: parallax effects, scripts for the example pages etc -->
   <script src="assets/js/material-kit.min1036.js?v=2.1.1" type="text/javascript"></script>
-  
 </body>
+
 </html>
