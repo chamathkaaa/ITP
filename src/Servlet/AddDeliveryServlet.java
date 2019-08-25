@@ -1,8 +1,10 @@
 package Servlet;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.sql.SQLException;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -41,13 +43,13 @@ public class AddDeliveryServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		String del_id = request.getParameter("DeliveryID");
-		String ordID = request.getParameter("OrderID");
-		String shName = request.getParameter("ShopName");
+		String del_id = request.getParameter("updateDelID");
+		String ordID = request.getParameter("orderID");
+		String shName = request.getParameter("shopName");
 		String addr = request.getParameter("address");
 		String email = request.getParameter("email");
 		String bkID = request.getParameter("bookID");
-		String qty = request.getParameter("qty");
+		String qty = request.getParameter("quantity");
 		String amount = request.getParameter("amount");
 		String vehicleNo = request.getParameter("vehicle");
 		String empID = request.getParameter("employee");
@@ -74,7 +76,18 @@ public class AddDeliveryServlet extends HttpServlet {
 			
 			if(isAdded == true) {
 				
-				System.out.println("Successfull !");
+				PrintWriter out = response.getWriter();
+				out.println("<script src='https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.11.4/sweetalert2.all.js'></script>");
+				out.println("<script src='https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>");
+				out.println("<script>");
+				out.println("$(document).ready(function(){");
+				out.println("swal ( 'Added Successfully' ,  '' ,  'success' );");
+				out.println("});");
+				out.println("</script>"); 
+				
+				RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/AssignDelivery.jsp");
+				dispatcher.include(request, response);
+				
 				
 			}
 		} catch (SQLException e) {

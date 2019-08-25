@@ -8,7 +8,8 @@
 <html>
 
 <head>
-	<title>Delivery View </title>
+
+<title>Delivery View </title>
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
@@ -77,12 +78,21 @@
       f.parentNode.insertBefore(j, f);
     })(window, document, 'script', 'dataLayer', 'GTM-NKDMSK6');
   </script>
-	
+
+
+
+
+
+
 </head>
-	
+
 <body>
 
-	<nav class="navbar navbar-color-on-scroll navbar-transparent    fixed-top  navbar-expand-lg " color-on-scroll="100" id="sectionsNav">
+                   
+   
+
+
+ <nav class="navbar navbar-color-on-scroll navbar-transparent    fixed-top  navbar-expand-lg " color-on-scroll="100" id="sectionsNav">
     <div class="container">
       <div class="navbar-translate">
         <a class="navbar-brand" >
@@ -155,7 +165,7 @@
                           </li>
 
                           <li class="nav-item">
-                            <a class="nav-link " href="AddDelivery.jsp" role="tab" >
+                            <a class="nav-link " href="AssignDelivery.jsp" role="tab" >
                               <i class="material-icons">add</i> Add Deliveries
                             </a>
                           </li>
@@ -190,9 +200,9 @@
               <div class="row" style="  height:500px;">
        
 
-                         <div  style="width: 400px; left: 250px">
+                  <div  style="width: 400px; left: 250px">
                 
-                    <form method="" action="#">
+                    <form method="post" action="SearchDeliveryServlet">
                       <div class="row">
                         <div class="col-lg-8 col-md-6 ">
                           <div class="input-group">
@@ -201,18 +211,18 @@
                                 <i class="material-icons">search</i>
                               </span>
                             </div>
-                            <input type="text" value="" placeholder="Search..." class="form-control">
+                            <input type="text" name="SearchDelId" placeholder="Search..." class="form-control" id="searchDelivery">                           
                           </div>
                         </div>
                         <div class="col-lg-4 col-md-6 ">
-                          <button type="button" class="btn btn-primary btn-block">Search</button>
+                          <button type="submit" class="btn btn-primary btn-block" id="searchDeliveryID">Search</button>
                         </div>
-                      </div>
+                      </div>                      
+                        
                     </form>
               
                 </div>
                  
-
    
       <div class="card card-plain" >
         <div class="card-body" >
@@ -237,78 +247,59 @@
               </thead>
               <%
               		DeliveryService serv = new DeliveryServiceImpl();
+              
+              		ArrayList<Delivery> list = serv.getViewDeliveries();
               		
-              		ArrayList<Delivery> list = serv.getAllDeliveries(); 
+              		for(Delivery s: list){
               %>
          
               <tbody>
              
                 <tr>            
-                  <td class="td-name">  
-                  D001
-                  </td>
-                  <td class="td-name" >
-                  Or012
-                  </td>
-                  <td class="td-name">  
-                  ABC Bookshop
-                  </td>
-                  <td class="td-name">  
-                  Gampaha
-                  </td>
-                  <td class="td-name">  
-                  abc@gmail.com
-                  </td>
-                  <td class="td-name">  
-                  B109
-                  </td>
-                  <td class="td-name">  
-                  150
-                  </td>
-                  <td class="td-name">  
-                  37500
-                  </td>
-                  <td class="td-name">  
-                  NB - 0405
-                  </td>
-                  <td class="td-name">  
-                  E234
-                  </td>
-                  <td class="td-name">  
-                  1-Jun-2019
-                  </td>       
+                  <td class="td-name"> <%=s.getDelID() %></td>
+                  
+                  <td class="td-name" > <%=s.getOrderID() %></td>
+                  
+                  <td class="td-name"> <%=s.getShopName() %> </td>
+                  
+                  <td class="td-name"> <%=s.getAddress() %> </td>
+                  
+                  <td class="td-name"> <%=s.getEmail() %></td>
+                  
+                  <td class="td-name"> <%=s.getBookID() %> </td>
+                  
+                  <td class="td-name"> <%=s.getQuantity() %></td>
+                  
+                  <td class="td-name"> <%=s.getAmount() %> </td>
+                 
+                  <td class="td-name"> <%=s.getVehicleNo() %> </td>
+                
+                  <td class="td-name"> <%=s.getEmpID() %></td> 
+                 
+                  <td class="td-name">  <%=s.getDate() %></td> 
+                  
+                       
                     <td >
-                    
                     	
-                        
-                           <button  type="submit" value="Save" rel="tooltip" class="btn btn-success btn-round btn-just-icon btn-sm"  data-toggle="tooltip" data-placement="top" title="Edit" data-container="body">
+                          <button  type="submit" value="Save" rel="tooltip" class="btn btn-success btn-round btn-just-icon btn-sm"  data-toggle="tooltip" data-placement="top" title="Edit" data-container="body">
                             <i class="material-icons" style="color : white;">edit</i>
-                     </button>
+                     	  </button>
+                     	
                          
-                          
-                         <!--  </form> -->
-                          
-                          
-                          
-                          
-                        <!--   <form action="DeleteVideoServlet" method="post"> -->
-                          
-                          	
-                          	<button rel="tooltip" class="btn btn-danger btn-round btn-just-icon btn-sm"  data-toggle="tooltip" data-placement="top" title="Delete">
+                         <form action="DeleteDeliveryServlet" method="post">
+                    	        
+                    	   <input type="hidden" name ="deleteValue" value="<%=s.getDelID() %>">     
+                          <button rel="tooltip" class="btn btn-danger btn-round btn-just-icon btn-sm"  data-toggle="tooltip" data-placement="top" title="Delete">
                           	<i class="material-icons" style="color : white;">close</i>
-                          	</button>
-                          	
-                       <!--    </form>
-                           -->
-                         <!--  <form action="DeleteVideoServlet" method="post"> -->
-                          
-                           
                           </button>
-                          
-                          </form>
-                        </td>
+                           </form>
+                      
+                    </td>
                 </tr>               
               </tbody>
+              <%
+              }
+              %>
          
             </table>
           </div>
@@ -405,6 +396,6 @@
   <script src="assets/demo/demo.js" type="text/javascript"></script>
   <!-- Control Center for Material Kit: parallax effects, scripts for the example pages etc -->
   <script src="assets/js/material-kit.min1036.js?v=2.1.1" type="text/javascript"></script>
-  
+
 </body>
 </html>

@@ -1,3 +1,4 @@
+<%@page import="Model.Delivery"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -196,20 +197,28 @@
 
              <div align="center">
 		
+		<%
 		
+		Delivery d1 = (Delivery) request.getAttribute("getCid");
+		
+		  
+		  if( d1!=null){
+			  
+		
+		%>
 		<div class="table-responsive" style="height:410px; width: 850px;">
 			<form action="AddDeliveryServlet" method="post" >
     
      		
-                    <div class="form-group" >
+                       <div class="form-group">
                       <div class="input-group">
                         <div class="input-group-prepend">
                           <span class="input-group-text">
-                            <i class="material-icons">filter_1</i>
+                            <i class="material-icons">filter</i>
                           </span>
                         </div>
-                        <input type="text" name="name" size="45"
-                			 class="form-control" placeholder="Delivery ID..." name="DeliveryID">
+                        <input type="text" name="updateDelID" size="45"
+                			 placeholder="Delivery ID..." value="<%=d1.getDelID() %>" class="form-control"  />
                       </div>
                     </div>
                     <div class="form-group">
@@ -219,8 +228,8 @@
                             <i class="material-icons">bookmark_border</i>
                           </span>
                         </div>
-                        <input type="text" name="description" size="45"
-                			 placeholder="Order ID..." class="form-control" name="OrderID"/>
+                        <input type="text" name="orderID" size="45"
+                			 placeholder="Order ID..." value="<%=d1.getOrderID() %>" class="form-control" />
                       </div>
                     </div>
                     <div class="form-group">
@@ -230,8 +239,8 @@
                             <i class="material-icons">shopping_basket</i>
                           </span>
                         </div>
-                        <input type="text" name="description" size="45"
-                			 placeholder="Shop Name..." class="form-control" name="ShopName"/>
+                        <input type="text"  size="45"
+                			 placeholder="Shop Name..." value="<%=d1.getShopName() %>" class="form-control" name="shopName"/>
                       </div>
                     </div>
                     <div class="form-group">
@@ -241,8 +250,8 @@
                             <i class="material-icons">location_on</i>
                           </span>
                         </div>
-                        <input type="text" name="description" size="45"
-                			 placeholder="Address..." class="form-control" name="address"/>
+                        <input type="text"  size="45"
+                			 placeholder="Address..." value="<%=d1.getAddress() %>" class="form-control" name="address"/>
                       </div>
                     </div>
                     <div class="form-group">
@@ -252,8 +261,8 @@
                             <i class="material-icons">email</i>
                           </span>
                         </div>
-                        <input type="text" name="description" size="45"
-                			 placeholder="Email..." class="form-control" name="email"/>
+                        <input type="text"  size="45"
+                			 placeholder="Email..." value="<%=d1.getEmail() %>" class="form-control" name="email"/>
                       </div>
                     </div>
                     <div class="form-group">
@@ -263,8 +272,8 @@
                             <i class="material-icons">book</i>
                           </span>
                         </div>
-                        <input type="text" name="description" size="45"
-                			 placeholder="Book ID..." class="form-control" name="bookID"/>
+                        <input type="text"  size="45"
+                			 placeholder="Book ID..." value="<%=d1.getBookID() %>" class="form-control" name="bookID"/>
                       </div>
                     </div>
                     <div class="form-group">
@@ -274,8 +283,8 @@
                             <i class="material-icons">list</i>
                           </span>
                         </div>
-                        <input type="text" name="description" size="45"
-                			 placeholder="Quantity..." class="form-control" name="qty"/>
+                        <input type="text"  size="45" placeholder="Quantity..." value="<%=d1.getQuantity() %>" class="form-control" name="quantity"/>
+                			
                       </div>
                     </div>
 
@@ -286,8 +295,8 @@
                             <i class="material-icons">attach_money</i>
                           </span>
                         </div>
-                        <input type="text" name="description" size="45"
-                			 placeholder="Amount..." class="form-control" name="amount"/>
+                        <input type="text"  size="45"
+                			 placeholder="Amount..." value="<%=d1.getAmount()%>" class="form-control" name="amount"/>
                       </div>
                     </div>
                     <div class="form-group">
@@ -297,8 +306,8 @@
                             <i class="material-icons">directions_car</i>
                           </span>
                         </div>
-                        <input type="text" name="description" size="45"
-                			 placeholder="Vehicle No..." class="form-control" name="vehicle"/>
+                        <input type="text"  size="45"
+                			 placeholder="Vehicle No..." value="<%=d1.getVehicleNo() %>" class="form-control" name="vehicle"/>
                       </div>
                     </div>
                     <div class="form-group">
@@ -308,8 +317,8 @@
                             <i class="material-icons">person</i>
                           </span>
                         </div>
-                        <input type="text" name="description" size="45"
-                			 placeholder="Employee ID..." class="form-control" name="employee"/>
+                        <input type="text"  size="45"
+                			 placeholder="Employee ID..." value="<%=d1.getEmpID()%>" class="form-control" name="employee"/>
                       </div>
                     </div>
                     <!--<div class="form-group">
@@ -353,8 +362,8 @@
                             <i class="material-icons">date_range</i>
                           </span>
                         </div>
-                        <input type="text" name="description" size="45"
-                			 placeholder="Delivery Date..." class="form-control" name="date"/>
+                        <input type="text"  size="45"
+                			 placeholder="Delivery Date..." value="<%=d1.getDate() %>" class="form-control" name="date"/>
                       </div>
                     </div>
     
@@ -373,6 +382,9 @@
                    </div>  
                    </form>
                </div>
+               <%
+		  		}
+               %>
                   
 </div>            
            </div>

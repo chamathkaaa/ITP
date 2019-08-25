@@ -8,6 +8,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 
 import Model.Delivery;
+import Model.StockDelivery;
 import Util.DBConnection;
 
 public class DeliveryServiceImpl implements DeliveryService{
@@ -18,15 +19,6 @@ public class DeliveryServiceImpl implements DeliveryService{
 		
 		conn = DBConnection.getConnection();
 	}
-	
-	/*@Override
-	public ArrayList<Delivery> getAllDeliveries() {
-		// TODO Auto-generated method stub
-		
-		String sql = "Select * from stockOrder";
-
-		return null;
-	}*/
 
 	@Override
 	public boolean addNewDelivery(Delivery del) throws SQLException  {
@@ -47,6 +39,96 @@ public class DeliveryServiceImpl implements DeliveryService{
 		
 		int res = stm.executeUpdate();
 		return res > 0;
+	}
+	
+	@Override
+	public ArrayList<StockDelivery> getAllDeliveries() throws SQLException {
+		// TODO Auto-generated method stub
+		
+		String sql = "Select * from stockOrder";
+		Statement stm = conn.createStatement();
+		ResultSet rst = stm.executeQuery(sql);
+		ArrayList<StockDelivery> stkList = new ArrayList<StockDelivery>();
+		
+		while(rst.next()) {
+			StockDelivery stk = new StockDelivery();
+			stk.setOrderId(rst.getString("order_id"));
+			stk.setShopName(rst.getString("shop_name"));
+			stk.setAddress(rst.getString("address"));
+			stk.setEmail(rst.getString("email"));
+			stk.setBookId(rst.getString("book_id"));
+			stk.setQuantity(rst.getString("quantity"));
+			stk.setAmount(rst.getString("amount"));
+			
+			stkList.add(stk);
+			
+			
+		}
+
+		return stkList;
+	}
+
+	@Override
+	public ArrayList<Delivery> getViewDeliveries() throws SQLException {
+		
+		String sql = "Select * from delivery";
+		Statement stm = conn.createStatement();
+		ResultSet rst = stm.executeQuery(sql);
+		ArrayList<Delivery> delList = new ArrayList<Delivery>();
+		
+		while(rst.next()) {
+			Delivery del = new Delivery();
+			del.setDelID(rst.getString("del_id"));
+			del.setOrderID(rst.getString("order_id"));
+			del.setShopName(rst.getString("shop_name"));
+			del.setAddress(rst.getString("address"));
+			del.setEmail(rst.getString("email"));
+			del.setBookID(rst.getString("book_id"));
+			del.setQuantity(rst.getString("quantity"));
+			del.setAmount(rst.getString("amount"));
+			del.setVehicleNo(rst.getString("vehicle_no"));
+			del.setEmpID(rst.getString("emp_id"));
+			del.setDate(rst.getString("date"));
+			
+			delList.add(del);
+		}
+		return delList;
+	}
+
+	@Override
+	public boolean deleteDelivery(String delId) throws SQLException {
+		
+		String sql = "Delete from delivery where del_id='"+ delId+"'";
+		Statement stm = conn.createStatement();
+		
+		return stm.executeUpdate(sql) > 0;
+	}
+
+	@Override
+	public Delivery getDeliveryDetails(String searchId) throws SQLException {
+		
+		String sql = "Select * from delivery where = '"+searchId+"'";
+		Statement stm = conn.createStatement();
+		ResultSet rst = stm.executeQuery(sql);
+		ArrayList<Delivery> delList = new ArrayList<Delivery>();
+		Delivery del = new Delivery();
+		
+		while(rst.next()) {
+			
+			del.setDelID(rst.getString("del_id"));
+			del.setOrderID(rst.getString("order_id"));
+			del.setShopName(rst.getString("shop_name"));
+			del.setAddress(rst.getString("address"));
+			del.setEmail(rst.getString("email"));
+			del.setBookID(rst.getString("book_id"));
+			del.setQuantity(rst.getString("quantity"));
+			del.setAmount(rst.getString("amount"));
+			del.setVehicleNo(rst.getString("vehicle_no"));
+			del.setEmpID(rst.getString("emp_id"));
+			del.setDate(rst.getString("date"));
+			
+		}
+		return del;
 	}
 
 }
